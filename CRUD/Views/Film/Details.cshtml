@@ -1,0 +1,17 @@
+﻿@model Film
+
+<section class="film-details">
+    <header>
+        <h2>Film Details</h2>
+    </header>
+    
+    <div class="details-content">
+        <p><strong>Title:</strong> @Model.Name</p>
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Price:</strong> $@Model.Price</p>
+    </div>
+    
+    <footer>
+        <a asp-action="Index" class="back-link">Back to List</a>
+    </footer>
+</section>

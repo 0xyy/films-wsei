@@ -1,0 +1,26 @@
+﻿@model Film
+
+<section class="film-delete">
+    <header>
+        <h2>Delete Film</h2>
+    </header>
+    
+    <div class="confirmation-message">
+        <p>Are you sure you want to delete this film?</p>
+    </div>
+    
+    <div class="film-details">
+        <p><strong>Title:</strong> @Model.Name</p>
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Price:</strong> $@Model.Price</p>
+    </div>
+    
+    <footer class="action-buttons">
+        <form asp-action="Delete" method="post" class="delete-form">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+        <a asp-action="Index" class="cancel-link">Cancel</a>
+    </footer>
+</section>

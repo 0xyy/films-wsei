@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Film>
+
+<section class="film-list">
+    <header>
+        <h2>Available Films</h2>
+    </header>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price ($)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var film in Model)
+                {
+                    <tr>
+                        <td>@film.Name</td>
+                        <td>@film.Description</td>
+                        <td>@film.Price</td>
+                        <td class="action-links">
+                            <a asp-action="Details" asp-route-id="@film.Id">Details</a>
+                            <span>|</span>
+                            <a asp-action="Edit" asp-route-id="@film.Id">Edit</a>
+                            <span>|</span>
+                            <a asp-action="Delete" asp-route-id="@film.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <a asp-action="Create" class="add-film-button">Add New Film</a>
+    </footer>
+</section>
